@@ -1,0 +1,63 @@
+[global]
+  unix charset = UTF-8
+  workgroup = WORKGROUP
+  server min protocol = SMB2
+  server max protocol = SMB3
+
+  server string = Box-Blue
+  browseable = yes
+  writeable = yes
+  printable = no
+  deadtime = 30
+  mangled names = no
+  name resolve order = host bcast
+  printcap name = /dev/null
+  load printers = no
+  encrypt passwords = true
+  enable core files = no
+  passdb backend = smbpasswd
+  smb encrypt = disabled
+  fruit:model = Xserve
+
+  # samba share options
+  map to guest = Bad User
+  guest account = root
+  security = user
+
+  # samba tuning options
+  socket options = TCP_NODELAY IPTOS_LOWDELAY
+  min receivefile size = 16384
+  aio read size = 16384
+  aio write size = 16384
+  use sendfile = yes
+
+  strict allocate = no
+
+  allocation roundup size = 0
+###############################################
+#  netbios name = fedora
+
+  log level = 10
+  log file = /var/log/samba/log.%m
+  max log size = 50
+  dnf proxy = no
+  wins support = yes
+#  local master = yes
+#  preferred master = yes
+#  domain master = auto
+#  os level = 20
+
+#  hosts allow = 127. 10.0.0. 192.168.178. localhost
+ 
+[workspace]
+  path = /workspace
+  read only = no
+  writable = yes
+  available = yes
+  browsable = yes
+  public = yes
+#  vaild useres = sh
+  guest ok = yes
+  guest only = yes
+  create mask = 0777
+  directory mask = 0777
