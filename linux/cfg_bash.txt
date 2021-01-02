@@ -4,3 +4,4 @@ export KUBE_EDITOR="nano"
 alias ll='ls -alH'
 alias v=vagrant
 alias k=kubectl
+alias d=docker
