@@ -1,7 +1,31 @@
-# PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\][\w]\[\033[00;32m\]\`__git_ps1\`\[\033[00m\]\n\$ "
+#-----------------------------------------------------------------------------------
+# Shell
 PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\][\w]\[\033[00m\]\n\$ "
-export KUBE_EDITOR="nano"
-alias ll='ls -alH'
+alias cls=clear 
+alias ll='ls -alF'
+
+#-----------------------------------------------------------------------------------
+# Windows Terminal
+PROMPT_COMMAND=
+echo -ne "\033]0;Ubuntu-16.04\a"
+
+#-----------------------------------------------------------------------------------
+# Sandbox
+alias sb='cd /mnt/d/sandbox/studying/sawtooth'
+
+#-----------------------------------------------------------------------------------
+# Docker & Vagrant
+alias d=docker 
+alias dc=docker-compose
 alias v=vagrant
+
+#---------------------------------------------------------------
+# Kubernetes
+export KUBE_EDITOR='nano'
 alias k=kubectl
-alias d=docker
+alias kk='k get pv,pvc,deploy,pods'
+source <(kubectl completion bash)
+complete -F __start_kubectl k
+
+#---------------------------------------------------------------
+# Hyperlager Fabric
