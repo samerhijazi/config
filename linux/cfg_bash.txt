@@ -1,17 +1,25 @@
+# Add following 2-lins in .bashrc from WSL-OS
+#-----------------------------------------------------------------------------------
+# export SH_SYS_NAME="ubuntu-fabric"
+# source /mnt/c/configs/linux/cfg_bash.txt
+
 #-----------------------------------------------------------------------------------
 # Shell
-PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\][\w]\[\033[00m\]\n\$ "
-alias cls=clear 
-alias ll='ls -alF'
+PS1="\[\033[01;32m\]\u@$SH_SYS_NAME\[\033[00m\]:\[\033[01;34m\][\w]\[\033[00m\]\n\$ "
+# PS1="\[\033[01;32m\]\u@Git\[\033[00m\]:\[\033[01;34m\][\w]\[\033[00;32m\]\`__git_ps1\`\[\033[00m\]\n\$ "
+alias cls=clear
+alias ..='cd ..'
+alias ll='ls -alF --color=auto'
+alias mc='LANG=en_EN.UTF-8 mc'
 
 #-----------------------------------------------------------------------------------
 # Windows Terminal
 PROMPT_COMMAND=
-echo -ne "\033]0;Ubuntu-16.04\a"
+echo -ne "\033]0;$SYS_WSL_NAME\a"
 
 #-----------------------------------------------------------------------------------
 # Sandbox
-alias sb='cd /mnt/d/sandbox/studying/sawtooth'
+alias sb="cd /mnt/d/sandbox/studying/fabric"
 
 #-----------------------------------------------------------------------------------
 # Docker & Vagrant
@@ -21,11 +29,16 @@ alias v=vagrant
 
 #---------------------------------------------------------------
 # Kubernetes
-export KUBE_EDITOR='nano'
+export KUBE_EDITOR="nano"
 alias k=kubectl
-alias kk='k get pv,pvc,deploy,pods'
+alias kk="k get pv,pvc,deploy,pods"
 source <(kubectl completion bash)
 complete -F __start_kubectl k
+
+function kns() { 
+	kubectl config set-context --current --namespace="$1"
+	kubectl config view --minify | grep namespace:
+}
 
 #---------------------------------------------------------------
 # Hyperlager Fabric
