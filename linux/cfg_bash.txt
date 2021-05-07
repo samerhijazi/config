@@ -15,16 +15,20 @@ alias mc='LANG=en_EN.UTF-8 mc'
 #-----------------------------------------------------------------------------------
 # Windows Terminal
 PROMPT_COMMAND=
-echo -ne "\033]0;$SYS_WSL_NAME\a"
+echo -ne "\033]0;$SH_SYS_NAME\a"
+alias exp="explorer.exe"
 
 #-----------------------------------------------------------------------------------
 # Sandbox
-alias sb="cd /mnt/d/sandbox/studying/fabric"
+alias sb="cd /mnt/d/sandbox/fabric-dev/"
 
 #-----------------------------------------------------------------------------------
 # Docker & Vagrant
 alias d=docker 
 alias dc=docker-compose
+alias ds="docker stop $(docker ps -aq)"
+alias dr="docker rm $(docker ps -aq)"
+alias dri="docker rmi $(docker images dev-* -aq)"
 alias v=vagrant
 
 #---------------------------------------------------------------
@@ -42,3 +46,9 @@ function kns() {
 
 #---------------------------------------------------------------
 # Hyperlager Fabric
+
+#---------------------------------------------------------------
+# go
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=/mnt/c/go
+export PATH=$PATH:$GOPATH/bin
