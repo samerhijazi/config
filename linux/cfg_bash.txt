@@ -2,6 +2,7 @@
 #-----------------------------------------------------------------------------------
 # export SH_SYS_NAME="ubuntu-fabric"
 # source /mnt/c/configs/linux/cfg_bash.txt
+#-----------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------
 # Shell
@@ -11,16 +12,18 @@ alias cls=clear
 alias ..='cd ..'
 alias ll='ls -alF --color=auto'
 alias mc='LANG=en_EN.UTF-8 mc'
+alias exp='explorer.exe .'
+alias ssbb='ssh sh@box-blue'
 
 #-----------------------------------------------------------------------------------
 # Windows Terminal
 PROMPT_COMMAND=
 echo -ne "\033]0;$SH_SYS_NAME\a"
-alias exp="explorer.exe"
+alias exp="explorer.exe ."
 
 #-----------------------------------------------------------------------------------
 # Sandbox
-alias sb="cd /mnt/d/sandbox/fabric-dev/"
+alias sb="cd /mnt/d/sandbox/"
 
 #-----------------------------------------------------------------------------------
 # Docker & Vagrant
@@ -49,6 +52,6 @@ function kns() {
 
 #---------------------------------------------------------------
 # go
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:/mnt/d/sandbox/bin
 export GOPATH=/mnt/c/go
 export PATH=$PATH:$GOPATH/bin
