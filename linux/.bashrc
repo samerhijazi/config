@@ -1,7 +1,7 @@
 # Add following 2-lins in .bashrc from WSL-OS
 #-----------------------------------------------------------------------------------
 # export SH_SYS_NAME="ubuntu-fabric"
-# source /mnt/c/configs/linux/cfg_bash.txt
+# source ./.bashrc
 #-----------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------
@@ -19,11 +19,9 @@ alias ssbb='ssh sh@box-blue'
 # Windows Terminal
 PROMPT_COMMAND=
 echo -ne "\033]0;$SH_SYS_NAME\a"
-alias exp="explorer.exe ."
-
 #-----------------------------------------------------------------------------------
 # Sandbox
-alias sb="cd /mnt/d/sandbox/"
+alias sb="cd /mnt/d/sandbox/study/k8s-admin/sandbox"
 
 #-----------------------------------------------------------------------------------
 # Docker & Vagrant
@@ -36,6 +34,7 @@ alias v=vagrant
 
 #---------------------------------------------------------------
 # Kubernetes
+#export KUBECONFIG=$KUBECONFIG:/mnt/c/Users/samer/.kube/config
 export KUBE_EDITOR="nano"
 alias k=kubectl
 alias kk="k get pv,pvc,deploy,pods"
