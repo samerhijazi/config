@@ -1,24 +1,26 @@
 # Add following 2-lins in .bashrc from WSL-OS
 #-----------------------------------------------------------------------------------
 # export SH_SYS_NAME="ubuntu-fabric"
-# source ./.bashrc
+# source /mnt/c/sys-config/linux/.bashrc
+
 #-----------------------------------------------------------------------------------
+# Path
+export PATH=$PATH:/mnt/c/sys-bin/linux
 
 #-----------------------------------------------------------------------------------
 # Shell
 PS1="\[\033[01;32m\]\u@$SH_SYS_NAME\[\033[00m\]:\[\033[01;34m\][\w]\[\033[00m\]\n\$ "
-# PS1="\[\033[01;32m\]\u@Git\[\033[00m\]:\[\033[01;34m\][\w]\[\033[00;32m\]\`__git_ps1\`\[\033[00m\]\n\$ "
-alias cls=clear
 alias ..='cd ..'
+alias cls=clear
 alias ll='ls -alF --color=auto'
 alias mc='LANG=en_EN.UTF-8 mc'
 alias exp='explorer.exe .'
-alias ssbb='ssh sh@box-blue'
 
 #-----------------------------------------------------------------------------------
 # Windows Terminal
 PROMPT_COMMAND=
 echo -ne "\033]0;$SH_SYS_NAME\a"
+
 #-----------------------------------------------------------------------------------
 # Sandbox
 alias sb="cd /mnt/d/sandbox/study/k8s-admin/sandbox"
