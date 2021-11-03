@@ -1,10 +1,13 @@
 # Source: https://docs.microsoft.com/de-de/windows/terminal/customize-settings/profile-settings
 # For documentation see follwing links:
+# https://aka.ms/terminal-color-schemes
 # https://aka.ms/terminal-documentation
 # https://aka.ms/terminal-global-settings
-# https://aka.ms/terminal-profile-settings
-# https://aka.ms/terminal-color-schemes
 # https://aka.ms/terminal-keybindings
+# https://aka.ms/terminal-panes
+# https://aka.ms/terminal-profile-settings
+# https://aka.ms/terminal-selection
+
 
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
