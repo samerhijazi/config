@@ -27,19 +27,19 @@ alias sb="cd /mnt/d/sandbox/study/k8s-admin/sandbox"
 
 #-----------------------------------------------------------------------------------
 # Docker & Vagrant
-alias d=docker 
-alias dc=docker-compose
-alias ds="docker stop $(docker ps -aq)"
-alias dr="docker rm $(docker ps -aq)"
-alias dri="docker rmi $(docker images dev-* -aq)"
+#alias d=docker 
+#alias dc=docker-compose
+#alias ds="docker stop $(docker ps -aq)"
+#alias dr="docker rm $(docker ps -aq)"
+#alias dri="docker rmi $(docker images dev-* -aq)"
 alias v=vagrant
 
 #---------------------------------------------------------------
 # Kubernetes
 #export KUBECONFIG=$KUBECONFIG:/mnt/c/Users/samer/.kube/config
 export KUBE_EDITOR="nano"
+export do="--dry-run=client -o yaml"
 alias k=kubectl
-alias kk="k get pv,pvc,deploy,pods"
 source <(kubectl completion bash)
 complete -F __start_kubectl k
 
