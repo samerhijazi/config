@@ -8,18 +8,18 @@
 export PATH=$PATH:/mnt/c/sys-bin/linux
 
 #-----------------------------------------------------------------------------------
-# Shell
+# Prompt
 PS1="\[\033[01;32m\]\u@$SH_SYS_NAME\[\033[00m\]:\[\033[01;34m\][\w]\[\033[00m\]\n\$ "
+PROMPT_COMMAND=
+echo -ne "\033]0;$SH_SYS_NAME\a"
+
+#-----------------------------------------------------------------------------------
+# Alias
 alias ..='cd ..'
 alias cls=clear
 alias ll='ls -alF --color=auto'
 alias mc='LANG=en_EN.UTF-8 mc'
 alias exp='explorer.exe .'
-
-#-----------------------------------------------------------------------------------
-# Windows Terminal
-PROMPT_COMMAND=
-echo -ne "\033]0;$SH_SYS_NAME\a"
 
 #-----------------------------------------------------------------------------------
 # Sandbox
