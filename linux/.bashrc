@@ -1,11 +1,22 @@
 # Add following 2-lins in .bashrc from WSL-OS
 #-----------------------------------------------------------------------------------
 # export SH_SYS_NAME="ubuntu-fabric"
-# source /mnt/c/sys-config/linux/.bashrc
+# source /mnt/c/system/config/linux/.bashrc
+
+#-----------------------------------------------------------------------------------
+# Enviruments
+#export KUBECONFIG=$KUBECONFIG:/mnt/c/Users/samer/.kube/config
+export KUBE_EDITOR="nano"
+export do="--dry-run=client -o yaml"
 
 #-----------------------------------------------------------------------------------
 # Path
-export PATH=$PATH:/mnt/c/sys-bin/linux
+export WINPATH=/mnt/c/system/bin/linux
+export GOPATH=/user/local/go
+export JMETERPATH=/mnt/c/system/sdk/apache-jmeter-5.4.1
+export JBANGPATH=$HOME/.jbang
+
+export PATH=$PATH:$WINPATH:$GOPATH/bin:$JMETERPATH/bin:$JBANGPATH/bin
 
 #-----------------------------------------------------------------------------------
 # Prompt
@@ -14,45 +25,39 @@ PROMPT_COMMAND=
 echo -ne "\033]0;$SH_SYS_NAME\a"
 
 #-----------------------------------------------------------------------------------
-# Alias
+# Alias system
 alias ..='cd ..'
 alias cls=clear
 alias ll='ls -alF --color=auto'
+alias sysf='sudo apt update && sudo apt list --upgradable'
+alias sysu='sudo apt upgrade -y && sudo apt autoremove -y'
+#-----------------------------------------------------------------------------------
+# Alias apps
+
 alias mc='LANG=en_EN.UTF-8 mc'
 alias exp='explorer.exe .'
-
-#-----------------------------------------------------------------------------------
-# Sandbox
-alias sb="cd /mnt/d/sandbox/study/k8s-admin/sandbox"
-
-#-----------------------------------------------------------------------------------
-# Docker & Vagrant
-#alias d=docker 
-#alias dc=docker-compose
-#alias ds="docker stop $(docker ps -aq)"
-#alias dr="docker rm $(docker ps -aq)"
-#alias dri="docker rmi $(docker images dev-* -aq)"
-alias v=vagrant
-
-#---------------------------------------------------------------
-# Kubernetes
-#export KUBECONFIG=$KUBECONFIG:/mnt/c/Users/samer/.kube/config
-export KUBE_EDITOR="nano"
-export do="--dry-run=client -o yaml"
+alias d=docker 
+alias dstop="docker stop $(docker ps -aq)"
+alias drmc="docker rm $(docker ps -aq)"
+alias drim="docker rmi $(docker images dev-* -aq)"
 alias k=kubectl
-source <(kubectl completion bash)
-complete -F __start_kubectl k
+alias q='quarkus'
+alias v=vagrant
+alias jm='jmeter'
+alias j!=jbang
 
+alias speedtest='speedtest --simple'
+
+#-----------------------------------------------------------------------------------
+# Functions
 function kns() { 
 	kubectl config set-context --current --namespace="$1"
 	kubectl config view --minify | grep namespace:
 }
+#-----------------------------------------------------------------------------------
+# Added
 
-#---------------------------------------------------------------
-# Hyperlager Fabric
+source <(kubectl completion bash)
+complete -F __start_kubectl k
 
-#---------------------------------------------------------------
-# go
-export PATH=$PATH:/usr/local/go/bin:/mnt/d/sandbox/bin
-export GOPATH=/mnt/c/go
-export PATH=$PATH:$GOPATH/bin
+
