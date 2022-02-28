@@ -42,9 +42,10 @@ alias drmc="docker rm $(docker ps -aq)"
 alias drim="docker rmi $(docker images dev-* -aq)"
 alias k=kubectl
 alias q='quarkus'
-alias v=vagrant
+alias v='vagrant'
 alias jm='jmeter'
-alias j!=jbang
+alias j='jbang'
+alias t='terraform'
 
 alias speedtest='speedtest --simple'
 
