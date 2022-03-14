@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  name: Play Run on localhost  
+  connection: local
+  tasks:
+    - name: install packages
+      apt:
+        name: "{{item}}"        
+        state: present
+      with_items:
+        - 'git'
+        - 'mc'

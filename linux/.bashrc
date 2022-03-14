@@ -12,7 +12,7 @@ export do="--dry-run=client -o yaml"
 #-----------------------------------------------------------------------------------
 # Path
 export WINPATH=/mnt/c/system/bin/linux
-export GOPATH=/user/local/go
+export GOPATH=/mnt/d/sandbox/go
 export JMETERPATH=/mnt/c/system/sdk/apache-jmeter-5.4.1
 export JBANGPATH=$HOME/.jbang
 
@@ -20,11 +20,15 @@ export PATH=$PATH:$WINPATH:$GOPATH/bin:$JMETERPATH/bin:$JBANGPATH/bin
 
 #-----------------------------------------------------------------------------------
 # Prompt
-PS1='\e[0;32m\u@\h:\e[0;34m[\w]\e[0;32m$(__git_ps1)\n\$\e[0m '
-#PS1="\[\033[0;32m\]\u@\h:\[\033[0;35m\][\w]\[\033[0;32m\]$(__git_ps1)\n\$ \[\033[0m\]"
-#PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h:\w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '
-PROMPT_COMMAND=
-echo -ne "\033]0;$SH_SYS_NAME\a"
+#export PS1='\[\033[32m\]\u@\h:\[\033[34m\][\w]\[\033[32m\]\[\033[0m\]\n$ '
+#export PS1="\[\033[32m\]\u@\h:\[\033[34m\][\w]\[\033[32m\]$(__git_ps1)\[\033[0m\]\n$ "
+PROMPT_COMMAND='__git_ps1 "\[\033[32m\]\u@\h:\[\033[34m\][\w]\[\033[0m\]" "\n\$ "'
+#echo -ne "\033]0;$SH_SYS_NAME\a"
+
+export GIT_PS1_DESCRIBE_STYLE='describe'
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWCOLORHINTS=true
 
 #-----------------------------------------------------------------------------------
 # Alias system
@@ -37,7 +41,7 @@ alias sysu='sudo apt upgrade -y && sudo apt autoremove -y'
 # Alias apps
 
 alias mc='LANG=en_EN.UTF-8 mc'
-alias exp='explorer.exe .'
+alias exp='explorer.exe'
 alias d=docker 
 alias dstop="docker stop $(docker ps -aq)"
 alias drmc="docker rm $(docker ps -aq)"
@@ -48,8 +52,9 @@ alias v='vagrant'
 alias jm='jmeter'
 alias j='jbang'
 alias t='terraform'
-
-alias speedtest='speedtest --simple'
+alias an='ansible'
+alias ap='ansible-playbook'
+alias st='speedtest --simple'
 
 #-----------------------------------------------------------------------------------
 # Functions
