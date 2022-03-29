@@ -1,8 +1,21 @@
 ---
 - hosts: localhost
-  name: Play Run on localhost  
+  name: Build Testfeld-B-ServiceList-Audi
   connection: local
+  
+  vars:
+    from: "camelot"
+    
+  vars_prompt:
+    - name: release_version
+      prompt: Product release version
+      default: "1.0"
   tasks:
+    - name: This is just a placeholder
+      ansible.builtin.command: /bin/echo foo
+    - name: Print Masage
+      ansible.builtin.debug:
+        msg: 'Logging in as {{ release_version }}'
     - name: install packages
       apt:
         name: "{{item}}"        
@@ -10,3 +23,10 @@
       with_items:
         - 'git'
         - 'mc'
+    - name: Template a file to /etc/file.conf
+      ansible.builtin.template:
+        src: /mytemplates/foo.j2
+        dest: /etc/file.conf
+        owner: bin
+        group: wheel
+        mode: '0644'

@@ -4,25 +4,24 @@
 # source /mnt/c/system/config/linux/.bashrc
 
 #-----------------------------------------------------------------------------------
-# Enviruments
+### Enviruments
 #export KUBECONFIG=$KUBECONFIG:/mnt/c/Users/samer/.kube/config
 export KUBE_EDITOR="nano"
 export do="--dry-run=client -o yaml"
 
 #-----------------------------------------------------------------------------------
-# Path
-export WINPATH=/mnt/c/system/bin/linux
+### Path
+export PATH_WIN=/mnt/c/system/bin/linux
+export PATH_JMETER=/mnt/c/system/sdk/apache-jmeter-5.4.3
 export GOPATH=/mnt/d/sandbox/go
-export JMETERPATH=/mnt/c/system/sdk/apache-jmeter-5.4.1
 export JBANGPATH=$HOME/.jbang
-
-export PATH=$PATH:$WINPATH:$GOPATH/bin:$JMETERPATH/bin:$JBANGPATH/bin
+export PATH=$PATH:$PATH_WIN:$GOPATH/bin:$PATH_JMETER/bin:$JBANGPATH/bin
 
 #-----------------------------------------------------------------------------------
-# Prompt
-#export PS1='\[\033[32m\]\u@\h:\[\033[34m\][\w]\[\033[32m\]\[\033[0m\]\n$ '
+## Prompt
+export PS1='\[\033[32m\]\u@\h:\[\033[34m\][\w]\[\033[32m\]\[\033[0m\]\n$ '
 #export PS1="\[\033[32m\]\u@\h:\[\033[34m\][\w]\[\033[32m\]$(__git_ps1)\[\033[0m\]\n$ "
-PROMPT_COMMAND='__git_ps1 "\[\033[32m\]\u@\h:\[\033[34m\][\w]\[\033[0m\]" "\n\$ "'
+#PROMPT_COMMAND='__git_ps1 "\[\033[32m\]\u@\h:\[\033[34m\][\w]\[\033[0m\]" "\n\$ "'
 #echo -ne "\033]0;$SH_SYS_NAME\a"
 
 export GIT_PS1_DESCRIBE_STYLE='describe'
@@ -31,14 +30,14 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWCOLORHINTS=true
 
 #-----------------------------------------------------------------------------------
-# Alias system
+### Alias system
 alias ..='cd ..'
 alias cls=clear
 alias ll='ls -alF --color=auto'
 alias sysf='sudo apt update && sudo apt list --upgradable'
 alias sysu='sudo apt upgrade -y && sudo apt autoremove -y'
 #-----------------------------------------------------------------------------------
-# Alias apps
+### Alias apps
 
 alias mc='LANG=en_EN.UTF-8 mc'
 alias exp='explorer.exe'
