@@ -2,10 +2,11 @@
 - hosts: localhost
   name: Build Testfeld-B-ServiceList-Audi
   connection: local
-  
+
   vars:
     from: "camelot"
-    
+    directory: /path/to/dir
+
   vars_prompt:
     - name: release_version
       prompt: Product release version
@@ -15,18 +16,37 @@
       ansible.builtin.command: /bin/echo foo
     - name: Print Masage
       ansible.builtin.debug:
-        msg: 'Logging in as {{ release_version }}'
+        msg: "Logging in as {{ release_version }}"
     - name: install packages
       apt:
-        name: "{{item}}"        
+        name: "{{item}}"
         state: present
       with_items:
-        - 'git'
-        - 'mc'
+        - "git"
+        - "mc"
     - name: Template a file to /etc/file.conf
       ansible.builtin.template:
         src: /mytemplates/foo.j2
         dest: /etc/file.conf
         owner: bin
         group: wheel
-        mode: '0644'
+        mode: "0644"
+    - name: Copy file to a remote server
+      copy:
+        src: ~/test.txt
+        dest: /tmp
+    - name: Archives the files and folders
+      archive:
+        path: /test1/project/*
+        dest: /test1/project.zip
+        format: zip
+    - name: Unarchives the zip file
+      unarchive:
+        src: /test1/project.zip
+        dest: /test2            
+    - name: reg-files
+      command: "ls {{directory}}"
+      register: dir_out
+    - name: Go-Through-Items
+      debug: var={{item}}
+      with_items: dir_out.stdout_lines
