@@ -1,21 +1,18 @@
-### Install dconf:
-Arch/Manjaro: sudo pacman -S dconf
-Debian/Ubuntu: sudo apt install dconf*
-Fedora: sudo dnf install dconf
-OpenSUSE: sudo zypper install dconf
+Source: https://www.youtube.com/watch?v=Cy4Zo9-Tn-c&t=497s
+Source: https://www.pling.com/p/1670979/
 
-### Backup original settings of GNOME Shell
+# Install dconf:
+sudo dnf install dconf
+
+## Backup original settings of GNOME Shell
 dconf dump / > gnome-shell-backup
-Restore original settings of GNOME Shell
+## Restore original settings of GNOME Shell
 dconf load / < gnome-shell-backup
 
-### Install gnome extension integration
-Arch/Manjaro: pamac build chrome-gnome-shell
-Debian/Ubuntu: sudo apt-get install chrome-gnome-shell
-Fedora Linux: sudo dnf install chrome-gnome-shell
-gentoo: emerge -av gnome-extra/chrome-gnome-shell
+# Install gnome extension integration
+sudo dnf install chrome-gnome-shell
 
-### Install addons gnome extensions from firefox webbrowsers
+## Install addons gnome extensions from firefox webbrowsers
 
 ### GTK THEME :
 git clone https://github.com/vinceliuice/Fluent-gtk-theme
@@ -25,9 +22,6 @@ git clone https://github.com/vinceliuice/Fluent-gtk-theme
 ./install.sh --tweaks square
 
 ### FLATPAK SUPPORT THEME:
-sudo pacman -S ostree appstream-glib
-sudo apt install ostree appstream-util
-sudo zypper install libostree appstream-glib
 sudo dnf install ostree libappstream-glib
 
 ### git clone https://github.com/refi64/stylepak.git
@@ -45,7 +39,7 @@ git clone https://github.com/vinceliuice/Fluent-icon-theme.git
 ./install.sh -a -r
 
 ### CURSORS THEME:
-git clone https://github.com/vinceliuice/Fluent-icon-theme
+git clone https://github.com/vinceliuice/Fluent-icon-theme.git
 ./cursors/install.sh
 
 ### WALLPAPER:
@@ -54,7 +48,10 @@ git clone -b Wallpaper https://github.com/vinceliuice/Fluent-gtk-theme.git
 sudo ./install-gnome-backgrounds.sh
 
 ### FONTS:
-https://github.com/mrbvrz/segoe-ui-linux
+Source: https://github.com/mrbvrz/segoe-ui-linux
+wget https://raw.githubusercontent.com/mrbvrz/segoe-ui-linux/master/install.sh
+chmod +x install.sh
+./install.sh
 
 ### APPLY GTK THEME, ICON, CURSORS, FONTS AND CHANGE WALLPAPERS
 Enable User theme extensions
