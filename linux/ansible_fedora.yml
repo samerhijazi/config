@@ -1,0 +1,21 @@
+---
+- name: Fedora-Linux
+  hosts: localhost  
+  connection: local
+  
+  tasks:
+    - name: Install-Base
+      dnf:
+        state: latest
+        name: "{{ item }}"
+        #update_cache: True
+      with_items:
+        - dnf-plugins-core
+        - fedora-release-common
+        - fedora-release-workstation
+        - fedora-workstation-repositories
+        - "@c-development"
+        - "@d-development"
+        - "@virtualization"
+        - "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
+        - "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
