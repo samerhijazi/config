@@ -1,20 +1,20 @@
-Source: https://www.youtube.com/watch?v=Cy4Zo9-Tn-c&t=497s
-Source: https://www.pling.com/p/1670979/
-
-sudo apt install ubuntu-restricted-extras
-
-# Install dconf:
-sudo dnf install dconf
-dconf dump / > gnome-shell-backup   ### Back dconf
-dconf load / < gnome-shell-backup   ### Restore deconf
+Ref: https://github.com/jnsh/arc-theme
+Ref: https://github.com/vinceliuice
+Ref: https://www.youtube.com/watch?v=Cy4Zo9-Tn-c&t=497s
+Ref: https://www.pling.com/p/1670979/
+Ref: https://wiki.archlinux.org/title/GTK
 
 ### GTK Base:
-sudo dnf install gnome-themes-extra gtk-murrine-engine sassc optipng inkscape libglib2.0-dev-bin 
-sudo apt install gnome-themes-extra gtk-murrine-engine sassc optipng inkscape libglib2.0-dev-bin 
+sudo apt install ubuntu-restricted-extras inkscape sassc meson optipng
+sudo apt install gnome-themes-extra gtk2-engines-murrine glib-compile-resources
+
+### GRUB2 THEME:
+git clone https://github.com/vinceliuice/grub2-themes.git
+sudo ./install.sh -b -t tela
 
 ### FLUENT GTK THEME:
 git clone https://github.com/vinceliuice/Fluent-gtk-theme.git
-./install.sh -n -t default -c light -s compact -i fedora --tweaks solid round square
+./install.sh -t default -c light -s compact -i ubuntu --tweaks solid round square
 
 ### Mojave GTK THEME:
 git clone https://github.com/vinceliuice/Mojave-gtk-theme.git
@@ -32,6 +32,11 @@ git clone https://github.com/yeyushengfan258/Win11-icon-theme.git
 wget https://raw.githubusercontent.com/mrbvrz/segoe-ui-linux/master/install.sh
 chmod +x install.sh
 ./install.sh
+
+# Install dconf:
+sudo dnf install dconf
+dconf dump / > gnome-shell-backup   ### Back dconf
+dconf load / < gnome-shell-backup   ### Restore deconf
 
 ### APPLY GTK THEME, ICON, CURSORS, FONTS AND CHANGE WALLPAPERS
 Enable User theme extensions
