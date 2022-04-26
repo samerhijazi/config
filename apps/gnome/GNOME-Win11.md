@@ -1,12 +1,18 @@
-Ref: https://github.com/jnsh/arc-theme
-Ref: https://github.com/vinceliuice
-Ref: https://www.youtube.com/watch?v=Cy4Zo9-Tn-c&t=497s
-Ref: https://www.pling.com/p/1670979/
-Ref: https://wiki.archlinux.org/title/GTK
+### Ref.
+https://github.com/jnsh/arc-theme
+https://github.com/vinceliuice
+https://www.youtube.com/watch?v=Cy4Zo9-Tn-c&t=497s
+https://www.pling.com/p/1670979/
+https://wiki.archlinux.org/title/GTK
 
 ### GTK Base:
 sudo apt install ubuntu-restricted-extras inkscape sassc meson optipng
-sudo apt install gnome-themes-extra gtk2-engines-murrine glib-compile-resources
+sudo apt install gnome-themes-extra gtk2-engines-murrine libglib2.0-dev-bin
+
+### Arc-Theme
+git clone https://github.com/jnsh/arc-theme --depth 1
+meson setup --prefix=$HOME/.local -Dvariants=light,darker,dark,lighter -Dthemes=gnome-shell,gtk2,gtk3,gtk4 -Dtransparency=false build/
+meson install -C build/
 
 ### GRUB2 THEME:
 git clone https://github.com/vinceliuice/grub2-themes.git
