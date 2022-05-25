@@ -32,7 +32,7 @@ export GIT_PS1_SHOWCOLORHINTS=true
 #-----------------------------------------------------------------------------------
 ### Alias system
 alias ..='cd ..'
-alias cls=clear
+alias cl=clear
 alias ll='ls -alF --color=auto'
 alias sysf='sudo apt update && sudo apt list --upgradable'
 alias sysu='sudo apt upgrade -y && sudo apt autoremove -y'

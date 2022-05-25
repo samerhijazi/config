@@ -8,6 +8,7 @@ https://wiki.archlinux.org/title/GTK
 ### GTK Base:
 sudo apt install ubuntu-restricted-extras inkscape sassc meson optipng
 sudo apt install gnome-themes-extra gtk2-engines-murrine libglib2.0-dev-bin
+sudo dnf install gnome-themes-extra gtk-murrine-engine sassc
 
 ### Arc-Theme
 git clone https://github.com/jnsh/arc-theme --depth 1
@@ -20,7 +21,7 @@ sudo ./install.sh -b -t tela
 
 ### FLUENT GTK THEME:
 git clone https://github.com/vinceliuice/Fluent-gtk-theme.git
-./install.sh -t default -c light -s compact -i ubuntu --tweaks solid round square
+./install.sh -t default -i fedora --tweaks solid round square compact
 
 ### Mojave GTK THEME:
 git clone https://github.com/vinceliuice/Mojave-gtk-theme.git
