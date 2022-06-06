@@ -34,9 +34,14 @@ export GIT_PS1_SHOWCOLORHINTS=true
 alias ..='cd ..'
 alias cl=clear
 alias ll='ls -alF --color=auto'
+#-----------------------------------------------------------------------------------
 alias sysf='sudo apt update && sudo apt list --upgradable'
 alias sysu='sudo apt upgrade -y && sudo apt autoremove -y'
 #-----------------------------------------------------------------------------------
+alias sysf='sudo dnf makecache --refresh'
+alias sysu='sudo dnf update --refresh'
+#-----------------------------------------------------------------------------------
+
 ### Alias apps
 
 alias mc='LANG=en_EN.UTF-8 mc'
